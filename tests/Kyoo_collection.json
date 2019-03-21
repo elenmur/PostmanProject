@@ -1,0 +1,287 @@
+{
+	"info": {
+		"_postman_id": "806aceba-53de-4fb0-90f2-00d71c4e5015",
+		"name": "Kyoo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "check_auth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a45fbc84-6e04-4948-88be-5422c591eea3",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://kyoo.mainsoft.org/api/check_auth",
+					"protocol": "https",
+					"host": [
+						"kyoo",
+						"mainsoft",
+						"org"
+					],
+					"path": [
+						"api",
+						"check_auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getLocations",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "623baa48-89ac-40bc-b815-6d83ee0497f7",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData=pm.response.json();",
+							"console.log(jsonData);",
+							"var jsonData=JSON.parse(responseBody)",
+							"",
+							"pm.test(\"Check the first id location\", function () {",
+							"      pm.expect(jsonData.location_dtolist[0].id).to.eql(\"0HAGQM9P0S3XV\");",
+							"});",
+							"",
+							"pm.test(\"Check the merchant_id\", function () {",
+							"      pm.expect(jsonData.location_dtolist[0].merchant_id).to.eql(\"9ZGY2GY9274QB\");",
+							"});",
+							"",
+							"pm.test(\"Check the location name\", function () {",
+							"      pm.expect(jsonData.location_dtolist[0].name).to.eql(\"1234\");",
+							"});",
+							"",
+							"pm.test(\"Check if the selected flag is true \", function () {",
+							"      pm.expect(jsonData.location_dtolist[0].selected).to.eql(true);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/secure/locations",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"secure",
+						"locations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getActive",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ffbb0146-7ed7-4ef4-b3c5-c21b1d030da7",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData=pm.response.json();",
+							"console.log(jsonData);",
+							"var jsonData=JSON.parse(responseBody)",
+							"",
+							"pm.test(\"Check the first id location\", function () {",
+							"      pm.expect(jsonData[0].id).to.eql(\"QC0ST3MPSWNT9\");",
+							"      });",
+							"      ",
+							"pm.test(\"Cheсk the merchant_id\", function () {",
+							"      pm.expect(jsonData[0].merchant_id).to.eql(\"9ZGY2GY9274QB\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID=DE9C3C87D32AC6EC280796417B465AC8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://kyoo.mainsoft.org/api/secure/locations/active",
+					"protocol": "https",
+					"host": [
+						"kyoo",
+						"mainsoft",
+						"org"
+					],
+					"path": [
+						"api",
+						"secure",
+						"locations",
+						"active"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "code",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3daf6b58-184f-4dfe-958b-eb03615e3968",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData=pm.response.json();",
+							"console.log(jsonData);",
+							"var jsonData=JSON.parse(responseBody);",
+							"",
+							"pm.test(\"Check area code\", function () {",
+							"      pm.expect(jsonData[0].area_code).to.eql(415);",
+							"      });",
+							"      ",
+							"pm.test(\"Check location_dto\", function () {",
+							"      pm.expect(jsonData[1].location_dto.id).to.eql(\"Y5CD6AH4TA4TJ\");",
+							"      });",
+							"      ",
+							"     pm.test(\"Check merchant_id\", function () {",
+							"      pm.expect(jsonData[1].location_dto.merchant_id).to.eql(\"9ZGY2GY9274QB\");",
+							"      });",
+							"      ",
+							"    pm.test(\"Check location name\", function () {",
+							"      pm.expect(jsonData[1].location_dto.name).to.eql(\"test 10\");",
+							"      });",
+							"      "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://kyoo.mainsoft.org/api/secure/locations/code",
+					"protocol": "https",
+					"host": [
+						"kyoo",
+						"mainsoft",
+						"org"
+					],
+					"path": [
+						"api",
+						"secure",
+						"locations",
+						"code"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
