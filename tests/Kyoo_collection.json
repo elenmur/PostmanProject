@@ -44,7 +44,7 @@
 					},
 					{
 						"key": "Cookie",
-						"value": "{{Cookie}}",
+						"value": "JSESSIONID=CFF50551D2FD98E40C40E9369F0CD292",
 						"type": "text"
 					}
 				],
@@ -82,7 +82,7 @@
 							"",
 							"var jsonData=pm.response.json();",
 							"console.log(jsonData);",
-							"var jsonData=JSON.parse(responseBody)",
+							"var jsonData=JSON.parse(responseBody);",
 							"",
 							"pm.test(\"Check the first id location\", function () {",
 							"      pm.expect(jsonData.location_dtolist[0].id).to.eql(\"0HAGQM9P0S3XV\");",
@@ -117,7 +117,7 @@
 					},
 					{
 						"key": "Cookie",
-						"value": "{{Cookie}}",
+						"value": "JSESSIONID=47A363280E21BCADA71CA10A9CB3D467",
 						"type": "text"
 					}
 				],
@@ -126,9 +126,12 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{url}}/api/secure/locations",
+					"raw": "https://kyoo.mainsoft.org/api/secure/locations",
+					"protocol": "https",
 					"host": [
-						"{{url}}"
+						"kyoo",
+						"mainsoft",
+						"org"
 					],
 					"path": [
 						"api",
@@ -153,7 +156,7 @@
 							"",
 							"var jsonData=pm.response.json();",
 							"console.log(jsonData);",
-							"var jsonData=JSON.parse(responseBody)",
+							"var jsonData=JSON.parse(responseBody);",
 							"",
 							"pm.test(\"Check the first id location\", function () {",
 							"      pm.expect(jsonData[0].id).to.eql(\"QC0ST3MPSWNT9\");",
@@ -168,6 +171,16 @@
 				}
 			],
 			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [
 					{
@@ -177,7 +190,7 @@
 					},
 					{
 						"key": "Cookie",
-						"value": "JSESSIONID=DE9C3C87D32AC6EC280796417B465AC8",
+						"value": "JSESSIONID=CFF50551D2FD98E40C40E9369F0CD292",
 						"type": "text"
 					}
 				],
@@ -257,7 +270,7 @@
 					},
 					{
 						"key": "Cookie",
-						"value": "{{Cookie}}",
+						"value": "JSESSIONID=CFF50551D2FD98E40C40E9369F0CD292",
 						"type": "text"
 					}
 				],

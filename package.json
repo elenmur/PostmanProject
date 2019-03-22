@@ -2,11 +2,12 @@
   "name": "postmanproject",
   "version": "1.0.0",
   "description": "Project for storing Postman tests",
-   "scripts": {
+  "scripts": {
     "api-tests-production": "newman run tests/Kyoo_collection.json"
   },
   "author": "Elen Murashkina",
-    "dependencies": {
-    "newman": "^4.4.0"
+  "dependencies": {
+    "newman": "^4.4.0",
+    "ssl-root-cas": "^1.3.1"
   }
 }
